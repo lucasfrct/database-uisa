@@ -1,7 +1,7 @@
 # Java springboot com maven
 FROM maven:3.6.3-openjdk-11 AS environment-java
 
-ENV TZ=America/Sao_Paulo
+ENV TZ=America/Los_Angeles
 ENV NLS_TIMESTAMP_FORMAT='DD/MON/RR HH24:MI:SSXFF'
 ENV NLS_LANGUAGE='AMERICAN'
 ENV NLS_TERRITORY='AMERICA'
