@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
-public class Healthz {
+public class Health {
     
-    @RequestMapping("/healthz")
+    @RequestMapping("/health")
     public String index() {
         return "UP";
     }

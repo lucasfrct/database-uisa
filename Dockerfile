@@ -15,7 +15,7 @@ WORKDIR /usr/environment-java
 
 ## copia o projeto
 COPY pom.xml ./
-COPY src ./src/
+COPY . .
 
 ## instala os pacotes
 RUN mvn package
