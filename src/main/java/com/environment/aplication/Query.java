@@ -25,7 +25,7 @@ public class Query {
 
         TimeZone timeZone = TimeZone.getTimeZone("America/Sao_Paulo");
         TimeZone.setDefault(timeZone);
-        System.setProperty("user.timezone", "América/Sao_Paulo"); 
+        System.setProperty("user.timezone", "America/Sao_Paulo"); 
 
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement stmt = conn.createStatement();
