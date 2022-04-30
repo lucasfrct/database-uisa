@@ -1,15 +1,14 @@
 package com.environment.aplication;
 
-
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 
 import java.util.TimeZone;
 
@@ -22,7 +21,7 @@ public class Query {
     static final String QUERY = "select SAFRA from pimsprd.vw_uisa_blockchain_colheita";
     
     @PostMapping("/query")
-    public String index() {
+    public String index(@RequestBody String body) {
 
         System.setProperty("user.timezone", "America/Los_Angeles"); 
         TimeZone timeZone = TimeZone.getTimeZone("America/Los_Angeles");
@@ -33,17 +32,13 @@ public class Query {
         ResultSet rs = stmt.executeQuery(QUERY);
         ) {	
             
-            
             while(rs.next()){
-                //Display values
-                System.out.print("SAFRA: " + rs.getInt("SAFRA"));
-
+                System.out.println("SAFRA: " + rs.getInt("SAFRA"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } 
 
-
-        return "QUERY";
+        return body;
     }
 }
