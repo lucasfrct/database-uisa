@@ -10,12 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 import java.util.TimeZone;
 
 @RestController
 public class Query {
 
-    static final String DB_URL = "jdbc:oracle:thin:@172.16.0.55:1521:UISA";
+    static final String DB_URL = "jdbc:oracle:thin:@172.16.0.55:1521:UISA?serverTimezone=America/Los_Angeles";
     static final String USER = "blockchain";
     static final String PASS = "i4nENMW0R5fXuPLAADfD";
     static final String QUERY = "select SAFRA from pimsprd.vw_uisa_blockchain_colheita";
@@ -30,7 +31,9 @@ public class Query {
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(QUERY);
-        ) {		      
+        ) {	
+            
+            
             while(rs.next()){
                 //Display values
                 System.out.print("SAFRA: " + rs.getInt("SAFRA"));
