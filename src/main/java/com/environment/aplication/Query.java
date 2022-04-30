@@ -40,7 +40,7 @@ public class Query {
         ) {	
             
             while(rs.next()){
-                System.out.println("SAFRA: " + rs.getInt("SAFRA"));
+                System.out.println("SAFRA: " + rs.getString("SAFRA"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
