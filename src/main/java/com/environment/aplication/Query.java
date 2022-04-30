@@ -23,9 +23,9 @@ public class Query {
     @PostMapping("/query")
     public String index() {
 
+        System.setProperty("user.timezone", "America/Los_Angeles"); 
         TimeZone timeZone = TimeZone.getTimeZone("America/Los_Angeles");
         TimeZone.setDefault(timeZone);
-        System.setProperty("user.timezone", "America/Los_Angeles"); 
 
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement stmt = conn.createStatement();
