@@ -23,6 +23,7 @@ services:
     environment:
       JAVA_ENV: "development"
       PORT: ${PORT}
+      JAVA_OPTS: -Doracle.jdbc.timezoneAsRegion=false
     command: mvn org.springframework.boot:spring-boot-maven-plugin:run
     networks:
       - local-network

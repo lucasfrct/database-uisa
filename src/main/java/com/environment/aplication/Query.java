@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import java.util.TimeZone;
+
 @RestController
 public class Query {
 
@@ -20,6 +22,10 @@ public class Query {
     
     @PostMapping("/query")
     public String index() {
+
+        TimeZone timeZone = TimeZone.getTimeZone("America/Sao_Paulo");
+        TimeZone.setDefault(timeZone);
+        System.setProperty("user.timezone", "América/Sao_Paulo"); 
 
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement stmt = conn.createStatement();
