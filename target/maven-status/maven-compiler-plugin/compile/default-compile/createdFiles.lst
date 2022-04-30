@@ -1,0 +1,6 @@
+com/environment/infrastructure/repository/UserRepository.class
+com/environment/aplication/Application.class
+com/environment/domain/User.class
+com/environment/aplication/UserController.class
+com/environment/services/UserService.class
+com/environment/aplication/Healthz.class

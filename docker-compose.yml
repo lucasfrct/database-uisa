@@ -1,0 +1,39 @@
+version: "3.3"
+services:
+  environment:
+    image: environment-java
+    hostname: environment-java
+    container_name: environment-java
+    labels:
+      description: environment-java
+      org.opencontainers.image.name: environment-java
+      org.opencontainers.image.authors: Lucas Costa
+      org.opencontainers.image.hostname: environment-java
+      com.docker.volume.name: environment-java
+      com.docker.network.bridge.name: environment-java
+    build: 
+      context: ./
+      target: environment-java
+      dockerfile: Dockerfile
+    working_dir: /usr/environment-java
+    volumes:
+      - ./:/usr/environment-java
+      - local-volume:/usr/environment-java/shared
+    env_file:
+      - ./.env 
+    environment:
+      JAVA_ENV: "development"
+      PORT: 9000
+    command: mvn spring-boot:run
+    networks:
+      - local-network
+    restart: always
+    ports:
+      - 8080:8080
+      - 35729:35729 ## live reload
+        
+volumes:
+  local-volume:
+networks:
+  local-network:
+    driver: bridge
