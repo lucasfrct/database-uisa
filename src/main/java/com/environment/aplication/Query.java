@@ -11,6 +11,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import java.util.TimeZone;
+import java.util.Map;
+
+import com.google.gson.Gson;
 
 @RestController
 public class Query {
@@ -27,9 +30,13 @@ public class Query {
         TimeZone timeZone = TimeZone.getTimeZone("America/Los_Angeles");
         TimeZone.setDefault(timeZone);
 
-        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(QUERY);
+        Gson gson = new Gson();
+        Map map = gson.fromJson(body, Map.class);
+
+        try(
+            Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(map.get("query").toString());
         ) {	
             
             while(rs.next()){
