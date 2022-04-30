@@ -23,7 +23,7 @@ services:
     environment:
       JAVA_ENV: "development"
       PORT: ${PORT}
-    command: mvn spring-boot:run
+    command: mvn org.springframework.boot:spring-boot-maven-plugin:run
     networks:
       - local-network
     restart: always
