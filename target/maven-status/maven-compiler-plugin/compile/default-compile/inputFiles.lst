@@ -1,2 +1,7 @@
 /usr/environment-java/src/main/java/com/environment/aplication/Health.java
+/usr/environment-java/src/main/java/com/environment/aplication/UserController.java
+/usr/environment-java/src/main/java/com/environment/services/UserService.java
+/usr/environment-java/src/main/java/com/environment/aplication/Healthz.java
+/usr/environment-java/src/main/java/com/environment/domain/User.java
+/usr/environment-java/src/main/java/com/environment/infrastructure/repository/UserRepository.java
 /usr/environment-java/src/main/java/com/environment/aplication/Application.java

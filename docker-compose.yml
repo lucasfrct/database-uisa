@@ -22,14 +22,13 @@ services:
       - ./.env 
     environment:
       JAVA_ENV: "development"
-      PORT: 9000
+      PORT: ${PORT}
     command: mvn spring-boot:run
     networks:
       - local-network
     restart: always
     ports:
-      - 8080:8080
-      - 35729:35729 ## live reload
+      - ${PORT}:${PORT}
         
 volumes:
   local-volume:
