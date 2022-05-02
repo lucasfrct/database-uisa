@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 @RestController
 public class Query {
 
-    static final String DB_URL = "jdbc:oracle:thin:@172.16.0.55:1521:UISA?-Doracle.sessionTimeZone=UTC";
+    static final String DB_URL = "jdbc:oracle:thin:@172.16.0.55:1521:UISA -Doracle.sessionTimeZone=UTC";
     static final String USER = "blockchain";
     static final String PASS = "i4nENMW0R5fXuPLAADfD";
     static final String QUERY = "select SAFRA from pimsprd.vw_uisa_blockchain_colheita";
