@@ -37,7 +37,7 @@ public class Query {
         ) {	
             
             while(rs.next()){
-                System.out.println("SAFRA: " + rs.getString("NOME_SEMIACABADO"));
+                System.out.println("SAFRA: " + rs.getString("DUMMY"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
