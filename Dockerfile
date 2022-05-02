@@ -1,7 +1,7 @@
 # Java springboot com maven
 FROM maven:3.6.3-openjdk-11 AS environment-java
 
-# ENV TZ=America/Los_Angeles
+ENV TZ=America/Sao_Paulo
 ENV NLS_TIMESTAMP_FORMAT='DD/MON/RR HH24:MI:SSXFF'
 ENV NLS_LANGUAGE='AMERICAN'
 ENV NLS_TERRITORY='AMERICA'
@@ -25,7 +25,9 @@ LABEL com.docker.network.bridge.name='environment-java'
 ## Atulaiza o continer
 # RUN lsb_release -a
 RUN apt -y update && apt -y upgrade
-RUN apt -y install build-essential wget git unzip gcc 
+RUN apt -y install build-essential wget git unzip gcc tzdata
+RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone 
+RUN dpkg-reconfigure -f noninteractive tzdata
 RUN apt install -y libpq-dev zlib1g-dev shared-mime-info libaio1 libaio-dev --no-install-recommends 
 RUN apt -y install alien libaio1 unixodbc
 
